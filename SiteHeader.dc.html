@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:sticky;top:0;z-index:50;background:rgba(10,10,9,0.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,154,62,0.18);font-family:'Albert Sans',system-ui,sans-serif">
+  <div style="max-width:1360px;margin:0 auto;padding:12px clamp(16px,3vw,40px);display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px">
+    <a href="index.html" style="display:flex;align-items:center;flex:none"><img src="logo-light.png" alt="Yardsmith Stables" style="height:clamp(15px,1.7vw,20px);width:auto;display:block"></a>
+    <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+      <nav style="display:flex;gap:2px;font-size:15px;font-weight:500;white-space:nowrap">
+        <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+          <a href="{{ l.href }}" style="padding:9px 14px;border-radius:999px;color:{{ l.fg }};background:{{ l.bg }}" style-hover="color:#E2C07A">{{ l.label }}</a>
+        </sc-for>
+      </nav>
+      <a href="request-access.html#demo" style="flex:none;white-space:nowrap;background:#C99A3E;color:#0A0A09;padding:11px 20px;border-radius:999px;font-size:15px;font-weight:600" style-hover="background:#DDB25E;color:#0A0A09">Request a Demo</a>
+    </sc-if>
+    <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
+      <button onClick="{{ toggle }}" aria-label="Menu" style="width:44px;height:44px;border-radius:12px;border:1px solid rgba(201,154,62,0.45);background:transparent;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0">
+        <span style="width:18px;height:1.5px;background:#E2C07A;display:block;transition:transform .25s;transform:{{ bar1 }}"></span>
+        <span style="width:18px;height:1.5px;background:#E2C07A;display:block;transition:opacity .2s;opacity:{{ bar2 }}"></span>
+        <span style="width:18px;height:1.5px;background:#E2C07A;display:block;transition:transform .25s;transform:{{ bar3 }}"></span>
+      </button>
+    </sc-if>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="border-top:1px solid #1E1D1A;padding:12px 16px 24px;display:flex;flex-direction:column;background:#0A0A09;height:calc(100vh - 64px);overflow-y:auto">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+        <a href="{{ l.href }}" onClick="{{ close }}" style="display:flex;justify-content:space-between;align-items:center;padding:18px 4px;border-bottom:1px solid #1E1D1A;font-size:20px;font-weight:500;color:{{ l.fg }}">{{ l.label }}<span style="color:#C99A3E">→</span></a>
+      </sc-for>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+        <a href="request-access.html#demo" onClick="{{ close }}" style="text-align:center;background:#C99A3E;color:#0A0A09;padding:16px;border-radius:999px;font-size:16px;font-weight:600">Request a Demo</a>
+        <a href="request-access.html#investors" onClick="{{ close }}" style="text-align:center;border:1px solid rgba(242,239,232,0.4);color:#F2EFE8;padding:15px;border-radius:999px;font-size:16px;font-weight:500">For Investors</a>
+        <a href="request-access.html#question" onClick="{{ close }}" style="text-align:center;color:#E2C07A;padding:12px;font-size:15px">Ask a question</a>
+      </div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;margin-top:auto;padding-top:24px;font-size:14px">
+        <a href="https://wa.me/31629475620" target="_blank">WhatsApp NL</a>
+        <a href="https://wa.me/421902459990" target="_blank">WhatsApp SK</a>
+      </div>
+    </div>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:72},&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;Product&quot;,&quot;For Your Team&quot;,&quot;For Investors&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1280, open: false };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR); this.onR(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); document.body.style.overflow = ''; }
+  renderVals() {
+    const a = this.props.active ?? '';
+    const L = [['Product', 'Product.dc.html'], ['For Your Team', 'Team.dc.html'], ['For Every Yard', 'Team.dc.html#every-yard'], ['For Investors', 'Investors.dc.html']];
+    const wide = this.state.w >= 900, open = this.state.open && !wide;
+    if (typeof document !== 'undefined') document.body.style.overflow = open ? 'hidden' : '';
+    return {
+      wide, narrow: !wide, menuOpen: open,
+      toggle: () => this.setState(s => ({ open: !s.open })),
+      close: () => this.setState({ open: false }),
+      bar1: open ? 'translateY(6.5px) rotate(45deg)' : 'none', bar2: open ? 0 : 1, bar3: open ? 'translateY(-6.5px) rotate(-45deg)' : 'none',
+      links: L.map(([label, href]) => ({ label, href, fg: label === a ? '#E2C07A' : '#E8E4DA', bg: label === a ? 'rgba(201,154,62,0.12)' : 'transparent' })),
+    };
+  }
+}
+</script>
+</body>
+</html>

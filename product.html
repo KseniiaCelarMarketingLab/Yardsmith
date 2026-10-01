@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A0A09;color:#F2EFE8;font-family:'Albert Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#E2C07A;text-decoration:none}
+a:hover{color:#F2EFE8}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div>
+<dc-import name="SiteHeader" active="Product" hint-size="100%,64px"></dc-import>
+
+<section style="background:radial-gradient(ellipse at 50% 0%,rgba(201,154,62,0.16) 0%,rgba(10,10,9,0) 55%)">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(80px,9vw,140px) clamp(16px,3vw,40px) 56px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px">
+    <h1 style="font-weight:500;font-size:clamp(40px,5.4vw,84px);line-height:0.98;letter-spacing:-0.035em;margin:0;max-width:1100px;text-wrap:balance">The physical side of the yard and the human side, <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">in one place.</span></h1>
+    <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.6;color:#BDB8AD;margin:0;max-width:680px;text-wrap:pretty">Managers and staff work on desktop or phone. Owners get their own view on their phone. Everyone sees the same live picture of the day.</p>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+      <a href="#spaces" style="border:1px solid #2E2C27;border-radius:999px;padding:10px 16px;font-size:14px;color:#D9D5CC" style-hover="border-color:#C99A3E;color:#E2C07A">Yard plan</a>
+      <a href="#tasks" style="border:1px solid #2E2C27;border-radius:999px;padding:10px 16px;font-size:14px;color:#D9D5CC" style-hover="border-color:#C99A3E;color:#E2C07A">Tasks &amp; roster</a>
+      <a href="#calendar" style="border:1px solid #2E2C27;border-radius:999px;padding:10px 16px;font-size:14px;color:#D9D5CC" style-hover="border-color:#C99A3E;color:#E2C07A">Calendar &amp; messages</a>
+      <a href="#owners" style="border:1px solid #2E2C27;border-radius:999px;padding:10px 16px;font-size:14px;color:#D9D5CC" style-hover="border-color:#C99A3E;color:#E2C07A">Owner app</a>
+      <a href="#roles" style="border:1px solid #2E2C27;border-radius:999px;padding:10px 16px;font-size:14px;color:#D9D5CC" style-hover="border-color:#C99A3E;color:#E2C07A">Roles</a>
+      <a href="#faq" style="border:1px solid #2E2C27;border-radius:999px;padding:10px 16px;font-size:14px;color:#D9D5CC" style-hover="border-color:#C99A3E;color:#E2C07A">FAQ</a>
+    </div>
+  </div>
+  <div style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,40px)">
+    <div style="border-radius:22px;padding:1px;background:linear-gradient(135deg,rgba(226,192,122,0.7),rgba(201,154,62,0.08) 45%,rgba(226,192,122,0.5))">
+      <div style="border-radius:21px;background:#0D0D0C;padding:clamp(10px,1.4vw,18px)"><img src="ui-spaces.png" alt="Stalls, paddocks, arena and walker overview" style="width:100%;display:block;border-radius:12px"></div>
+    </div>
+  </div>
+</section>
+
+<section id="spaces" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px) 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:end;margin-bottom:48px">
+    <div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:14px">01 · Yard plan</div>
+      <h2 style="font-weight:500;font-size:clamp(32px,3.4vw,52px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">Where every horse is standing <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">right now.</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px">
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">A map of the yard</strong>Stalls, paddocks, field, lunging circle and walker</div>
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Move a horse</strong>Select it, choose a space, the team sees it</div>
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Timers</strong>Set walker or turnout time and see what is left</div>
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Bring all in</strong>Clear a paddock in one step</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <div style="flex:2.207 1 441px;min-width:0;border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px"><img src="ui-yard-timer.png" alt="Setting a timer when moving a horse" style="width:100%;display:block;border-radius:10px"></div>
+    <div style="flex:0.927 1 185px;min-width:0;border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px"><img src="ui-yard-plan.png" alt="Walker, lunging circle and paddocks" style="width:100%;display:block;border-radius:10px"></div>
+  </div>
+</section>
+
+<section id="tasks" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px) 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:end;margin-bottom:48px">
+    <div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:14px">02 · Tasks &amp; roster</div>
+      <h2 style="font-weight:500;font-size:clamp(32px,3.4vw,52px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">Tasks that <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">stay clear.</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px">
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">One job, one worker</strong>With or without a horse attached</div>
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Time and deadline</strong>Flagged overdue once it passes</div>
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Weekly roster</strong>Tap a cell to schedule or clear a shift</div>
+      <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Days off covered</strong>Requests and cover on the same screen</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <div style="flex:1.968 1 394px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px"><img src="ui-new-task.png" alt="Creating a new task" style="width:100%;display:block;border-radius:10px"></div><div style="font-size:14px;color:#A39E92"><span style="color:#F2EFE8;font-weight:500">New task</span> · what, who, when and by when</div></div>
+    <div style="flex:1.888 1 378px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px"><img src="ui-roster.png" alt="Weekly roster of shifts" style="width:100%;display:block;border-radius:10px"></div><div style="font-size:14px;color:#A39E92"><span style="color:#F2EFE8;font-weight:500">Roster</span> · the week of shifts for the whole team</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,80px);align-items:center;margin-top:clamp(56px,6vw,96px);border:1px solid #24221E;border-radius:24px;padding:clamp(20px,4vw,56px);background:#0F0F0E">
+    <div style="border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px;max-width:480px;width:100%;justify-self:center"><img src="ui-care-plan.png" alt="Care plan: bedding and feed per meal" style="width:100%;display:block;border-radius:10px"></div>
+    <div>
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:16px">Care plan per horse</div>
+      <h3 style="font-weight:500;font-size:clamp(26px,2.6vw,38px);letter-spacing:-0.02em;line-height:1.1;margin:0 0 16px">Bedding, feed and scoops for every meal, written down once.</h3>
+      <p style="font-size:17px;line-height:1.65;color:#BDB8AD;margin:0">Morning, lunch and evening feed are set per horse, so whoever is on shift feeds it the same way.</p>
+    </div>
+  </div>
+</section>
+
+<section id="calendar" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px) 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:end;margin-bottom:48px">
+    <div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:14px">03 · Calendar &amp; messages</div>
+      <h2 style="font-weight:500;font-size:clamp(32px,3.4vw,52px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">Visits, training and requests. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">Conversations next to them.</span></h2>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px">
+      <div style="display:flex;align-items:center;gap:8px;border:1px solid #2E2C27;border-radius:999px;padding:8px 14px;font-size:14px;color:#D9D5CC"><div style="width:8px;height:8px;border-radius:50%;background:#8FB894"></div>Horse care</div>
+      <div style="display:flex;align-items:center;gap:8px;border:1px solid #2E2C27;border-radius:999px;padding:8px 14px;font-size:14px;color:#D9D5CC"><div style="width:8px;height:8px;border-radius:50%;background:#C99A3E"></div>Training</div>
+      <div style="display:flex;align-items:center;gap:8px;border:1px solid #2E2C27;border-radius:999px;padding:8px 14px;font-size:14px;color:#D9D5CC"><div style="width:8px;height:8px;border-radius:50%;background:#A99BE0"></div>Competition</div>
+      <div style="display:flex;align-items:center;gap:8px;border:1px solid #2E2C27;border-radius:999px;padding:8px 14px;font-size:14px;color:#D9D5CC"><div style="width:8px;height:8px;border-radius:50%;background:#D9B05E"></div>Yard</div>
+      <div style="display:flex;align-items:center;gap:8px;border:1px solid #2E2C27;border-radius:999px;padding:8px 14px;font-size:14px;color:#D9D5CC"><div style="width:8px;height:8px;border-radius:50%;background:#86AEDB"></div>Team</div>
+      <div style="display:flex;align-items:center;gap:8px;border:1px solid #2E2C27;border-radius:999px;padding:8px 14px;font-size:14px;color:#D9D5CC"><div style="width:8px;height:8px;border-radius:50%;background:#D98B76"></div>Owners and admin</div>
+    </div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start">
+    <div style="flex:1.937 1 387px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px"><img src="ui-calendar.png" alt="Monthly yard calendar" style="width:100%;display:block;border-radius:10px"></div><div style="font-size:14px;color:#A39E92"><span style="color:#F2EFE8;font-weight:500">Yard calendar</span> · visits, lessons and who is on</div></div>
+    <div style="flex:2.121 1 424px;min-width:0;display:flex;flex-direction:column;gap:14px"><div style="border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px"><img src="ui-messages.png" alt="Direct messages and the yard channel" style="width:100%;display:block;border-radius:10px"></div><div style="font-size:14px;color:#A39E92"><span style="color:#F2EFE8;font-weight:500">Yard communications</span> · direct messages and the yard channel</div></div>
+  </div>
+</section>
+
+<section id="owners" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px) 0">
+  <div style="border-radius:28px;border:1px solid rgba(201,154,62,0.3);background:radial-gradient(ellipse at 50% 110%,rgba(201,154,62,0.18) 0%,#0F0F0E 60%);padding:clamp(28px,5vw,72px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:48px;align-items:end;margin-bottom:56px">
+      <div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:14px">04 · Owner app</div>
+        <h2 style="font-weight:500;font-size:clamp(32px,3.4vw,52px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 20px">A window <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">for owners.</span></h2>
+        <p style="font-size:17px;line-height:1.65;color:#BDB8AD;margin:0">Owners see their own horse's day, without picking up the phone.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px">
+        <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">My horses</strong>Register a horse, follow answers to requests</div>
+        <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Horse check-in</strong>Profile, care, health, hours, progress</div>
+        <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Calendar</strong>Appointments and requests for their horses</div>
+        <div style="padding:14px 0;border-top:1px solid rgba(201,154,62,0.35);font-size:15px;line-height:1.5;color:#BDB8AD"><strong style="font-weight:600;display:block;margin-bottom:4px;color:#F2EFE8">Only their horse</strong>No other clients or internal yard information</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:clamp(12px,2vw,24px);align-items:flex-start">
+      <sc-for list="{{ phones }}" as="p" hint-placeholder-count="4">
+        <div style="flex:{{ p.grow }} 1 {{ p.basis }};min-width:140px;display:flex;flex-direction:column;gap:14px">
+          <div style="border:1px solid rgba(201,154,62,0.35);border-radius:28px;background:#0A0A09;padding:8px"><img src="{{ p.src }}" alt="{{ p.label }}" style="width:100%;display:block;border-radius:21px"></div>
+          <div style="font-size:14px;color:#A39E92;text-align:center"><span style="color:#F2EFE8;font-weight:500">{{ p.label }}</span></div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="roles" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px) 0">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;align-items:end;margin-bottom:40px">
+    <div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:14px">05 · Roles &amp; permissions</div>
+      <h2 style="font-weight:500;font-size:clamp(32px,3.4vw,52px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">Set up per yard, <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">not fixed by us.</span></h2>
+    </div>
+    <p style="font-size:17px;line-height:1.65;color:#BDB8AD;margin:0">The manager decides who can see and change what. Below is one example setup; every yard builds its own. <a href="team.html">What each role sees →</a></p>
+  </div>
+  <div style="overflow-x:auto;border:1px solid #24221E;border-radius:22px;background:#0F0F0E;padding:8px clamp(16px,3vw,40px) 24px">
+    <div style="min-width:760px">
+      <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);border-bottom:1px solid rgba(201,154,62,0.4);font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#C99A3E">
+        <div style="padding:18px 0"></div><div style="padding:18px 8px">Manager</div><div style="padding:18px 8px">Groom</div><div style="padding:18px 8px">Trainer</div><div style="padding:18px 8px">Vet / farrier</div><div style="padding:18px 8px">Owner</div>
+      </div>
+      <sc-for list="{{ matrix }}" as="row" hint-placeholder-count="6">
+        <div style="display:grid;grid-template-columns:1.6fr repeat(5,1fr);border-bottom:1px solid #1E1D1A;font-size:15px;align-items:center">
+          <div style="padding:18px 0;font-weight:500">{{ row.name }}</div>
+          <sc-for list="{{ row.cells }}" as="c" hint-placeholder-count="5">
+            <div style="padding:18px 8px;display:flex;align-items:center;gap:10px;color:#BDB8AD"><div style="width:10px;height:10px;border-radius:50%;background:{{ c.fill }};border:1.5px solid {{ c.line }}"></div>{{ c.label }}</div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:56px;align-items:start">
+  <div>
+    <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:14px">06 · FAQ</div>
+    <h2 style="font-weight:500;font-size:clamp(32px,3.4vw,52px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 20px">What yards ask first.</h2>
+    <p style="font-size:16px;line-height:1.6;color:#A39E92;margin:0">Something else? <a href="request-access.html#question">Ask a question →</a></p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="6">
+      <div style="border:1px solid {{ f.line }};border-radius:18px;background:#0F0F0E;padding:0 24px">
+        <button onClick="{{ f.toggle }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;background:none;border:none;cursor:pointer;font-family:'Albert Sans',sans-serif;font-size:18px;font-weight:500;color:#F2EFE8;text-align:left"><span>{{ f.q }}</span><span style="font-size:22px;color:#C99A3E">{{ f.sign }}</span></button>
+        <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}"><p style="font-size:16px;line-height:1.65;color:#BDB8AD;margin:0 0 22px;max-width:640px">{{ f.a }}</p></sc-if>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(72px,10vw,150px)">
+  <div style="position:relative;border-radius:28px;overflow:hidden;min-height:440px;display:flex;align-items:flex-end;border:1px solid rgba(201,154,62,0.35)">
+    <img src="photo-dressage-chestnut.jpg" alt="Chestnut dressage horse and rider" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,9,0.95) 0%,rgba(10,10,9,0.6) 75%)"></div>
+    <div style="position:relative;padding:clamp(28px,5vw,72px);display:flex;flex-direction:column;gap:28px;align-items:flex-start;max-width:720px">
+      <h2 style="font-weight:500;font-size:clamp(30px,3.4vw,52px);line-height:1.04;letter-spacing:-0.03em;margin:0">Tell us about your yard, and we will <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">show you the rest.</span></h2>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="request-access.html" style="background:#C99A3E;color:#0A0A09;padding:17px 28px;border-radius:999px;font-size:16px;font-weight:600" style-hover="background:#DDB25E;color:#0A0A09">Request a Demo →</a>
+        <a href="investors.html" style="border:1px solid rgba(242,239,232,0.5);color:#F2EFE8;padding:16px 28px;border-radius:999px;font-size:16px;font-weight:500" style-hover="border-color:#E2C07A;color:#E2C07A">For Investors</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { faq: 0 };
+  renderVals() {
+    const F = [
+      ['Who is Yardsmith Stables for?', 'Equestrian yards of any size and type: boarding and livery, dressage, show jumping, riding schools, and breeding or stud. It is used by everyone who works in the yard, and by horse owners through their own view.'],
+      ['Does it work on a phone?', 'Yes. Staff and owners use it on their phones in the yard; managers often plan on a laptop. It is the same live picture on every screen.'],
+      ['Can we set up our own roles?', 'Yes. Roles and permissions are set up per yard. You decide who can see and change what, and you can add roles that only exist at your yard.'],
+      ['What do owners see?', 'Only their own horses: profile, care, health, appointments and updates on their requests. They do not see other clients or internal yard information.'],
+      ['Does it replace the whiteboard and the group chat?', 'That is the intention. Spaces, tasks, the roster and messages live in one place, so the picture of the day is the same for everyone.'],
+      ['Is it available now?', 'Yardsmith Stables is currently in development in the Netherlands. Request access and we will show you the product and keep you informed as it develops.'],
+    ];
+    const fi = this.state.faq;
+    const M = [['Yard plan and spaces', 'EEVVH'], ['Tasks', 'EEVVH'], ['Roster and days off', 'EVVHH'], ['Calendar', 'EVEVE'], ['Horse profile and care', 'EEVVV'], ['Team and roles', 'EHHHH']];
+    const S = { E: ['Edit', '#C99A3E', '#C99A3E'], V: ['View', 'transparent', '#C99A3E'], H: ['Hidden', 'transparent', '#3A3832'] };
+    const P = [['My horses', 'ui-m-my-horses.png', 0.591], ['Horse check-in', 'ui-m-horse.png', 0.591], ['Calendar', 'ui-m-calendar.png', 0.514], ['Live, right now', 'ui-m-live.png', 0.514]];
+    return {
+      phones: P.map(p => ({ label: p[0], src: '' + p[1], grow: p[2], basis: Math.round(p[2] * 300) + 'px' })),
+      faqs0: null,
+      matrix: M.map(([name, s]) => ({ name, cells: s.split('').map(k => ({ label: S[k][0], fill: S[k][1], line: S[k][2] })) })),
+      faqs: F.map((f, i) => ({ q: f[0], a: f[1], open: i === fi, sign: i === fi ? '−' : '+', line: i === fi ? 'rgba(201,154,62,0.5)' : '#24221E', toggle: () => this.setState({ faq: i === fi ? -1 : i }) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

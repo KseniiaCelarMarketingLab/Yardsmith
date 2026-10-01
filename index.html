@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A0A09;color:#F2EFE8;font-family:'Albert Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#E2C07A;text-decoration:none}
+a:hover{color:#F2EFE8}
+*{box-sizing:border-box}
+@keyframes ysFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes ysPulse{0%{box-shadow:0 0 0 0 rgba(201,154,62,0.6)}70%{box-shadow:0 0 0 10px rgba(201,154,62,0)}100%{box-shadow:0 0 0 0 rgba(201,154,62,0)}}
+@keyframes ysSpin{to{transform:rotate(360deg)}}
+@keyframes ysFlow{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes ysBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+</style>
+</helmet>
+<div>
+<dc-import name="SiteHeader" active="" hint-size="100%,64px"></dc-import>
+
+<section style="position:relative;min-height:calc(100vh - 64px);min-height:640px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:#0A0A09">
+  <img src="photo-herd.jpg" alt="Horses running together across a green field" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 55%">
+  <div style="position:absolute;inset:0;background:rgba(10,10,9,0.38)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,9,0.7) 0%,rgba(10,10,9,0.2) 28%,rgba(10,10,9,0.55) 58%,rgba(10,10,9,0.98) 100%)"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,9,0.85) 0%,rgba(10,10,9,0.35) 55%,rgba(10,10,9,0.1) 100%)"></div>
+  <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:120px clamp(16px,3vw,40px) 0">
+    <h1 style="font-weight:500;font-size:clamp(40px,6vw,92px);line-height:0.98;letter-spacing:-0.035em;margin:0 0 32px;max-width:1120px;text-wrap:balance;text-shadow:0 2px 30px rgba(0,0,0,0.45)">You already know your yard better than anyone. It is time your software <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A;letter-spacing:-0.01em">finally caught up.</span></h1>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;padding-bottom:48px">
+      <p style="font-size:clamp(17px,1.4vw,20px);line-height:1.55;color:#D9D5CC;margin:0;max-width:540px;text-wrap:pretty">Yardsmith Stables gives every yard, and everyone working in it, one clear picture of the day. Built around real people, not a fixed org chart.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="request-access.html" style="display:flex;align-items:center;gap:12px;background:#C99A3E;color:#0A0A09;padding:18px 28px;border-radius:999px;font-size:16px;font-weight:600;white-space:nowrap" style-hover="background:#DDB25E;color:#0A0A09">Request a Demo <span style="font-size:18px">→</span></a>
+        <a href="investors.html" style="display:flex;align-items:center;gap:12px;border:1px solid rgba(242,239,232,0.55);color:#F2EFE8;padding:17px 28px;border-radius:999px;font-size:16px;font-weight:500;white-space:nowrap;background:rgba(10,10,9,0.3);backdrop-filter:blur(6px)" style-hover="border-color:#E2C07A;color:#E2C07A">For Investors</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));border-top:1px solid rgba(201,154,62,0.4)">
+      <div style="padding:22px 24px 28px 0"><div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:8px">Real-time</div><div style="font-size:15px;line-height:1.45;color:#D9D5CC">Every paddock, arena and walker</div></div>
+      <div style="padding:22px 24px 28px 0"><div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:8px">Team</div><div style="font-size:15px;line-height:1.45;color:#D9D5CC">Tasks, roster and messages</div></div>
+      <div style="padding:22px 24px 28px 0"><div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:8px">Owners</div><div style="font-size:15px;line-height:1.45;color:#D9D5CC">Their own horse, on their phone</div></div>
+      <div style="padding:22px 24px 28px 0"><div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:8px">Status</div><div style="font-size:15px;line-height:1.45;color:#D9D5CC">In development in the Netherlands</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="idea" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+  <div style="position:relative">
+    <img src="photo-tack-room.jpg" alt="Saddles and bridles in a tack room" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:20px">
+  </div>
+  <div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">The problem</div>
+    <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 32px;text-wrap:balance">The whiteboard remembers <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">less</span> than everyone assumes it does.</h2>
+    <p style="font-size:18px;line-height:1.7;color:#BDB8AD;margin:0 0 18px;text-wrap:pretty">A whiteboard in the tack room, a group chat nobody has time to scroll back through, a paper diary for the arena. It holds together, mostly, until two horses are booked into the same arena at once, or an owner calls to ask why nobody turned her horse out.</p>
+    <p style="font-size:18px;line-height:1.7;color:#BDB8AD;margin:0;text-wrap:pretty">Every person in the yard works from a slightly different picture of the same day. Those small gaps are what turn into missed turnout, double bookings, and messages that arrive too late to matter.</p>
+  </div>
+</section>
+
+<section style="border-top:1px solid #1E1D1A;border-bottom:1px solid #1E1D1A;background:radial-gradient(ellipse at 50% 0%,rgba(201,154,62,0.12) 0%,rgba(10,10,9,0) 60%)">
+  <div style="max-width:1100px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px);text-align:center">
+    <div style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:32px">The turn</div>
+    <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(36px,4.8vw,72px);line-height:1.05;letter-spacing:-0.01em;margin:0 0 32px;text-wrap:balance">You did not build this yard to spend your mornings solving the same small mystery <span style="font-style:italic;color:#E2C07A">again and again.</span></h2>
+    <p style="font-size:19px;line-height:1.6;color:#BDB8AD;max-width:620px;margin:0 auto;text-wrap:pretty">There is a way to see the whole place clearly, all at once, without adding yet another app that only manages half the problem.</p>
+  </div>
+</section>
+
+<section id="steps" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px) 0">
+  <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:48px;align-items:end;margin-bottom:56px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">How it starts</div>
+      <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">Four steps from whiteboard to <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">one live picture.</span></h2>
+    </div>
+    <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0">You describe the yard once. After that, everyone works from the same screen, on desktop or phone.</p>
+  </div>
+  <div style="position:relative;height:2px;background:#24221E;border-radius:2px;overflow:hidden;margin-bottom:28px">{{ flowLine }}</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:16px">
+    <div data-reveal="1" style="border:1px solid #24221E;border-radius:22px;background:#0F0F0E;padding:32px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;line-height:1;color:#C99A3E">01</div><div style="width:44px;height:44px;border:1px solid rgba(201,154,62,0.5);border-radius:12px;display:grid;grid-template-columns:1fr 1fr;gap:4px;padding:8px"><div style="background:#C99A3E;border-radius:2px"></div><div style="border:1px solid #C99A3E;border-radius:2px"></div><div style="border:1px solid #C99A3E;border-radius:2px"></div><div style="background:#C99A3E;border-radius:2px"></div></div></div>
+      <h3 style="font-weight:500;font-size:24px;letter-spacing:-0.02em;margin:0">Set up your yard</h3>
+      <p style="font-size:15px;line-height:1.6;color:#BDB8AD;margin:0">Add stalls, paddocks, the field, arenas, the walker and the lunging circle. Register horses with their care plans.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto"><span style="font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #2E2C27;color:#D9D5CC">Stalls</span><span style="font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #2E2C27;color:#D9D5CC">Paddocks</span><span style="font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #2E2C27;color:#D9D5CC">Walker</span><span style="font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #2E2C27;color:#D9D5CC">Horses</span></div>
+    </div>
+    <div data-reveal="2" style="border:1px solid #24221E;border-radius:22px;background:#0F0F0E;padding:32px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;line-height:1;color:#C99A3E">02</div><div style="display:flex"><div style="width:30px;height:30px;border-radius:50%;background:#2A2620;border:1px solid #C99A3E;font-size:11px;display:flex;align-items:center;justify-content:center;color:#E2C07A">MA</div><div style="width:30px;height:30px;border-radius:50%;background:#2A2620;border:1px solid #C99A3E;font-size:11px;display:flex;align-items:center;justify-content:center;color:#E2C07A;margin-left:-4px;box-shadow:0 0 0 3px #0F0F0E">GR</div><div style="width:30px;height:30px;border-radius:50%;background:#2A2620;border:1px solid #C99A3E;font-size:11px;display:flex;align-items:center;justify-content:center;color:#E2C07A;margin-left:-4px;box-shadow:0 0 0 3px #0F0F0E">OW</div></div></div>
+      <h3 style="font-weight:500;font-size:24px;letter-spacing:-0.02em;margin:0">Bring in your team</h3>
+      <p style="font-size:15px;line-height:1.6;color:#BDB8AD;margin:0">Invite managers, grooms, trainers, vets, farriers and owners. Choose what each role can see and change.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:auto"><span style="font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #2E2C27;color:#D9D5CC">Roles</span><span style="font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #2E2C27;color:#D9D5CC">Permissions</span><span style="font-size:12px;padding:5px 10px;border-radius:999px;border:1px solid #2E2C27;color:#D9D5CC">Roster</span></div>
+    </div>
+    <div data-reveal="3" style="border:1px solid rgba(201,154,62,0.45);border-radius:22px;background:radial-gradient(ellipse at 100% 0%,rgba(201,154,62,0.16) 0%,#0F0F0E 60%);padding:32px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;line-height:1;color:#C99A3E">03</div><div style="display:flex;align-items:center;gap:10px"><div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#E2C07A">{{ pulse }}Live</div><div style="width:44px;height:44px;border:1px solid rgba(201,154,62,0.5);border-radius:12px;background:rgba(201,154,62,0.08);display:flex;align-items:center;justify-content:center"><img src="mark-gold.png" alt="" style="width:22px;height:22px;display:block"></div></div></div>
+      <h3 style="font-weight:500;font-size:24px;letter-spacing:-0.02em;margin:0">Run the day</h3>
+      <p style="font-size:15px;line-height:1.6;color:#BDB8AD;margin:0">Move horses, tick off tasks, book sessions and message, all on the same live picture.</p>
+      <div style="margin-top:auto;border:1px solid #2E2C27;border-radius:14px;overflow:hidden;font-size:13px">
+        <div style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #24221E"><span>Walker · Pomme</span><span style="color:#E2C07A;font-variant-numeric:tabular-nums">{{ timer }} left</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #24221E"><span>Paddock 1 · Sky Is The Limit</span><span style="color:#E2C07A">Occupied</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 14px;border-bottom:1px solid #24221E"><span>Paddock 2 · Jay</span><span style="color:#E2C07A">Occupied</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 14px"><span>Paddock 3</span><span style="color:#8FB894">Empty</span></div>
+      </div>
+    </div>
+    <div data-reveal="4" style="border:1px solid #24221E;border-radius:22px;background:#0F0F0E;padding:32px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;line-height:1;color:#C99A3E">04</div><div style="width:44px;height:44px;border:1px solid rgba(201,154,62,0.5);border-radius:12px;background:rgba(201,154,62,0.08);display:flex;align-items:center;justify-content:center"><img src="mark-gold.png" alt="" style="width:22px;height:22px;display:block"></div></div>
+      <h3 style="font-weight:500;font-size:24px;letter-spacing:-0.02em;margin:0">Keep owners in the loop</h3>
+      <p style="font-size:15px;line-height:1.6;color:#BDB8AD;margin:0">Horse owners follow their own horse, send requests and get answers from the yard in the app. Fewer phone calls for everyone.</p>
+      <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.4">
+        <div style="align-self:flex-start;max-width:85%;padding:10px 14px;border-radius:14px 14px 14px 4px;background:#1A1916;border:1px solid #2E2C27"><div style="font-size:11px;color:#A39E92;margin-bottom:3px">Anna · Horse owner</div>Can Star go out with Jay tomorrow?</div>
+        <div style="align-self:flex-end;max-width:85%;padding:10px 14px;border-radius:14px 14px 4px 14px;background:rgba(201,154,62,0.14);border:1px solid rgba(201,154,62,0.45);display:flex;gap:10px;align-items:flex-start"><img src="mark-gold.png" alt="" style="width:16px;height:16px;flex:none;margin-top:2px"><div><div style="font-size:11px;color:#E2C07A;margin-bottom:3px">Yard</div>Yes, Paddock 2 from 9:00.</div></div>
+        <div style="align-self:flex-end;display:flex;align-items:center;gap:6px;font-size:11px;color:#8FB894"><span style="width:6px;height:6px;border-radius:50%;background:#8FB894"></span>Request approved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+  <div data-reveal="1" style="position:relative;width:100%;max-width:560px;aspect-ratio:1/1;justify-self:center">
+    <div style="position:absolute;inset:12%;border-radius:50%;border:1px solid #24221E"></div>
+    <div style="position:absolute;inset:12%">{{ ring }}</div>
+    <div style="position:absolute;inset:34%;border-radius:50%;background:radial-gradient(circle,rgba(201,154,62,0.28) 0%,rgba(201,154,62,0.05) 70%);border:1px solid rgba(201,154,62,0.6);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px">
+      <img src="logo-light.png" alt="" style="width:30%;height:auto;object-fit:cover;object-position:left;aspect-ratio:1/1;margin-bottom:8px">
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(14px,1.6vw,20px);color:#E2C07A;line-height:1.1">One picture<br>of the day</div>
+    </div>
+    <sc-for list="{{ hub }}" as="n" hint-placeholder-count="6">
+      <div style="position:absolute;left:{{ n.x }};top:{{ n.y }};transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center">
+        <div style="width:clamp(40px,5vw,56px);height:clamp(40px,5vw,56px);border-radius:50%;background:#141412;border:1px solid #C99A3E;display:flex;align-items:center;justify-content:center;font-size:clamp(11px,1vw,13px);font-weight:600;color:#E2C07A">{{ n.ab }}</div>
+        <div style="font-size:clamp(11px,1vw,13px);color:#D9D5CC;white-space:nowrap">{{ n.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+  <div data-reveal="2">
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">Everyone, connected</div>
+    <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 28px;text-wrap:balance">Every person in the yard, <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">the same honest picture.</span></h2>
+    <div style="display:flex;flex-direction:column">
+      <div style="display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid #24221E;font-size:15px;line-height:1.5"><span style="color:#E2C07A;font-weight:500">Manager</span><span style="color:#BDB8AD">Sets up spaces, roles and the roster</span></div>
+      <div style="display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid #24221E;font-size:15px;line-height:1.5"><span style="color:#E2C07A;font-weight:500">Grooms</span><span style="color:#BDB8AD">See their tasks and move horses</span></div>
+      <div style="display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid #24221E;font-size:15px;line-height:1.5"><span style="color:#E2C07A;font-weight:500">Trainer</span><span style="color:#BDB8AD">Books sessions around the horses in work</span></div>
+      <div style="display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid #24221E;font-size:15px;line-height:1.5"><span style="color:#E2C07A;font-weight:500">Vet / farrier</span><span style="color:#BDB8AD">Visits on the calendar, horses ready</span></div>
+      <div style="display:grid;grid-template-columns:140px minmax(0,1fr);gap:16px;padding:16px 0;border-top:1px solid #24221E;border-bottom:1px solid #24221E;font-size:15px;line-height:1.5"><span style="color:#E2C07A;font-weight:500">Owners</span><span style="color:#BDB8AD">Follow their own horse from their phone</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="product" style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px) 64px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:48px;align-items:end;margin-bottom:56px">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">What Yardsmith Stables is</div>
+      <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">One place that finally sees the yard <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">the way you do.</span></h2>
+    </div>
+    <div>
+      <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0 0 16px;text-wrap:pretty">Yardsmith Stables brings together the physical side of the yard, which paddocks, arenas and horse walkers are free right now, with the human side, the tasks, the messages, and a clear view for owners of what is happening with their own horse.</p>
+      <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0;text-wrap:pretty">Built by people who know a yard does not run on software, it runs on horses and the people looking after them. Yardsmith Stables just gives everyone the same honest picture of the day.</p>
+    </div>
+  </div>
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px">
+    <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="7">
+      <button onClick="{{ t.pick }}" style="white-space:nowrap;font-family:inherit;font-size:14px;font-weight:500;padding:11px 18px;border-radius:999px;cursor:pointer;border:1px solid {{ t.line }};background:{{ t.bg }};color:{{ t.fg }}">{{ t.label }}</button>
+    </sc-for>
+  </div>
+  <div style="border-radius:24px;padding:1px;background:linear-gradient(135deg,rgba(226,192,122,0.75),rgba(201,154,62,0.08) 40%,rgba(201,154,62,0.08) 60%,rgba(226,192,122,0.6))">
+    <div style="border-radius:23px;background:radial-gradient(ellipse at 50% 120%,rgba(201,154,62,0.14) 0%,#0D0D0C 60%);padding:clamp(16px,3vw,40px)">
+      <div style="height:{{ cur.h }};display:flex;gap:clamp(12px,2vw,28px);justify-content:center;align-items:center">
+        <sc-for list="{{ cur.shots }}" as="s" hint-placeholder-count="1">
+          <img src="{{ s }}" alt="{{ cur.label }}" style="min-width:0;max-width:100%;max-height:100%;height:auto;object-fit:contain;display:block;border-radius:14px;box-shadow:0 30px 80px -30px rgba(0,0,0,0.9),0 0 0 1px rgba(201,154,62,0.18)">
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px 48px;padding-top:clamp(20px,3vw,36px);margin-top:clamp(20px,3vw,36px);border-top:1px solid rgba(201,154,62,0.2)">
+        <div style="font-size:clamp(22px,2vw,30px);font-weight:500;letter-spacing:-0.02em;line-height:1.15">{{ cur.title }}</div>
+        <div style="font-size:16px;line-height:1.65;color:#BDB8AD">{{ cur.text }}</div>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:flex-end;margin-top:20px"><a href="product.html" style="font-size:15px;font-weight:500">Explore every part of the product →</a></div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:64px clamp(16px,3vw,40px) clamp(72px,10vw,160px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:16px">
+    <a href="product.html#spaces" style="color:#F2EFE8;border:1px solid #24221E;border-radius:20px;padding:36px 32px;display:flex;flex-direction:column;gap:16px;background:#0F0F0E" style-hover="border-color:#C99A3E;color:#F2EFE8">
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;color:#C99A3E;line-height:1">01</div>
+      <h3 style="font-weight:500;font-size:26px;letter-spacing:-0.02em;margin:0">Real-time visibility</h3>
+      <p style="font-size:16px;line-height:1.6;color:#BDB8AD;margin:0">Every paddock, arena and walker shows what is actually true right now.</p>
+    </a>
+    <a href="product.html#tasks" style="color:#F2EFE8;border:1px solid #24221E;border-radius:20px;padding:36px 32px;display:flex;flex-direction:column;gap:16px;background:#0F0F0E" style-hover="border-color:#C99A3E;color:#F2EFE8">
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;color:#C99A3E;line-height:1">02</div>
+      <h3 style="font-weight:500;font-size:26px;letter-spacing:-0.02em;margin:0">Tasks that stay clear</h3>
+      <p style="font-size:16px;line-height:1.6;color:#BDB8AD;margin:0">Each person's day is laid out for them, in order, without a scrolling chat.</p>
+    </a>
+    <a href="product.html#owners" style="color:#F2EFE8;border:1px solid #24221E;border-radius:20px;padding:36px 32px;display:flex;flex-direction:column;gap:16px;background:#0F0F0E" style-hover="border-color:#C99A3E;color:#F2EFE8">
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:44px;color:#C99A3E;line-height:1">03</div>
+      <h3 style="font-weight:500;font-size:26px;letter-spacing:-0.02em;margin:0">A window for owners</h3>
+      <p style="font-size:16px;line-height:1.6;color:#BDB8AD;margin:0">Owners see their own horse's day, without picking up the phone.</p>
+    </a>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden">
+  <img src="photo-indoor-arena.jpg" alt="Riders working in a bright indoor arena" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,9,0.96) 0%,rgba(10,10,9,0.85) 50%,rgba(10,10,9,0.55) 100%)"></div>
+  <div style="position:relative;max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px)">
+    <div style="max-width:680px">
+      <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">How it works</div>
+      <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 28px;text-wrap:balance">Every yard builds its own team. Yardsmith Stables <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">adapts to whoever is on it.</span></h2>
+      <p style="font-size:17px;line-height:1.7;color:#D9D5CC;margin:0 0 36px;text-wrap:pretty">No two yards are staffed the same way. A small livery yard might run on two people. A sport stable might have a manager, several grooms, a trainer, and a vet or farrier who visits on schedule. Roles and permissions are set up per yard, not fixed by us.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px">
+        <div style="border:1px solid rgba(242,239,232,0.35);border-radius:999px;padding:10px 16px;font-size:14px;background:rgba(10,10,9,0.4)">Manager</div>
+        <div style="border:1px solid rgba(242,239,232,0.35);border-radius:999px;padding:10px 16px;font-size:14px;background:rgba(10,10,9,0.4)">Groom / staff</div>
+        <div style="border:1px solid rgba(242,239,232,0.35);border-radius:999px;padding:10px 16px;font-size:14px;background:rgba(10,10,9,0.4)">Trainer</div>
+        <div style="border:1px solid rgba(242,239,232,0.35);border-radius:999px;padding:10px 16px;font-size:14px;background:rgba(10,10,9,0.4)">Vet / farrier</div>
+        <div style="border:1px solid rgba(242,239,232,0.35);border-radius:999px;padding:10px 16px;font-size:14px;background:rgba(10,10,9,0.4)">Working student</div>
+        <div style="border:1px solid rgba(242,239,232,0.35);border-radius:999px;padding:10px 16px;font-size:14px;background:rgba(10,10,9,0.4)">Owner</div>
+        <div style="border:1px solid #C99A3E;border-radius:999px;padding:10px 16px;font-size:14px;color:#E2C07A;background:rgba(10,10,9,0.4)">Any role you need</div>
+      </div>
+      <a href="team.html" style="display:inline-flex;align-items:center;gap:10px;border:1px solid #C99A3E;color:#E2C07A;padding:16px 26px;border-radius:999px;font-size:15px;font-weight:500;white-space:nowrap" style-hover="background:#C99A3E;color:#0A0A09">What each role sees →</a>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+  <div>
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">What changes</div>
+    <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 32px;text-wrap:balance">A yard that runs on what is true, <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">not on what someone remembers.</span></h2>
+    <p style="font-size:18px;line-height:1.7;color:#BDB8AD;margin:0 0 18px;text-wrap:pretty">Nothing dramatic. The small frictions simply stop. The arena gets booked before two people show up for it at once. A new hire knows what to do without asking around. An owner checks her phone instead of calling.</p>
+    <p style="font-size:18px;line-height:1.7;color:#BDB8AD;margin:0 0 32px;text-wrap:pretty">What is left is more time for the part of the job that needed a person all along, the horses, and the people who show up for them every day.</p>
+    <a href="team.html#day" style="font-size:15px;font-weight:500">Follow a day in the yard →</a>
+  </div>
+  <img src="photo-grazing.jpg" alt="A horse grazing in a paddock at sunset" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border-radius:20px">
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(72px,10vw,160px)">
+  <div data-reveal="1" style="border:1px solid #24221E;border-radius:28px;background:#0F0F0E;overflow:hidden">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:22px clamp(16px,3vw,32px)">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E">Before and after</div>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:#BDB8AD"><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:50%;border:1px solid #4A463E;font-size:9px;display:flex;align-items:center;justify-content:center">✕</span>Without</span><span style="display:flex;align-items:center;gap:8px"><span style="width:16px;height:16px;border-radius:50%;background:#C99A3E;color:#0A0A09;font-size:9px;font-weight:700;display:flex;align-items:center;justify-content:center">✓</span>With Yardsmith Stables</span></div>
+    </div>
+    <sc-for list="{{ compare }}" as="c" hint-placeholder-count="6">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));border-top:1px solid #24221E;font-size:15px;line-height:1.5">
+        <div style="padding:20px clamp(16px,3vw,32px);font-weight:500">{{ c.what }}</div>
+        <div style="padding:20px clamp(16px,3vw,32px);border-left:1px solid #24221E;color:#8E897E;display:flex;gap:12px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;border:1px solid #4A463E;color:#8E897E;font-size:11px;display:flex;align-items:center;justify-content:center;margin-top:1px">✕</span>{{ c.before }}</div>
+        <div style="padding:20px clamp(16px,3vw,32px);background:rgba(201,154,62,0.07);display:flex;gap:12px;align-items:flex-start"><span style="flex:none;width:20px;height:20px;border-radius:50%;background:#C99A3E;color:#0A0A09;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px">✓</span>{{ c.after }}</div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="border-top:1px solid #1E1D1A">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:48px;align-items:end;margin-bottom:56px">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">Built for the way you work</div>
+        <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">Every yard is a little different. Yardsmith Stables is built to <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">bend around that.</span></h2>
+      </div>
+      <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0">One core, five directions. Yardsmith Stables starts from the same foundation and grows into whichever shape your yard actually needs.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px">
+      <sc-for list="{{ yards }}" as="y" hint-placeholder-count="5">
+        <div style="position:relative;aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:1px solid #24221E">
+          <img src="{{ y.img }}" alt="{{ y.type }}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,9,0.1) 20%,rgba(10,10,9,0.97) 100%)"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;padding:24px;display:flex;flex-direction:column;gap:10px">
+            <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#E2C07A">{{ y.type }}</div>
+            <div style="font-size:21px;font-weight:500;letter-spacing:-0.01em;line-height:1.2">{{ y.title }}</div>
+            <div style="font-size:14px;line-height:1.5;color:#D9D5CC">{{ y.text }}</div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(72px,10vw,160px)">
+  <div style="position:relative;border-radius:28px;overflow:hidden;min-height:560px;display:flex;align-items:flex-end;border:1px solid rgba(201,154,62,0.35)">
+    <img src="photo-water-jump.jpg" alt="Horse and rider clearing a water jump at a show" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%">
+    <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,0.97) 0%,rgba(10,10,9,0.6) 55%,rgba(10,10,9,0.3) 100%)"></div>
+    <div style="position:relative;padding:clamp(28px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:32px;align-items:end;width:100%">
+      <div>
+        <div style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#E2C07A;margin-bottom:20px">For partners and investors</div>
+        <h2 style="font-weight:500;font-size:clamp(30px,3.4vw,52px);line-height:1.04;letter-spacing:-0.03em;margin:0;text-wrap:balance">Founded in the Netherlands. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">Built for equestrian yards everywhere.</span></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px;align-items:flex-start">
+        <p style="font-size:16px;line-height:1.65;color:#D9D5CC;margin:0">The product design is complete, and the business case is grounded in verified market research rather than guesswork.</p>
+        <a href="investors.html" style="display:inline-flex;align-items:center;gap:10px;background:#C99A3E;color:#0A0A09;padding:16px 26px;border-radius:999px;font-size:15px;font-weight:600;white-space:nowrap" style-hover="background:#DDB25E;color:#0A0A09">For Investors →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(72px,10vw,160px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(40px,6vw,96px);align-items:center">
+  <div data-reveal="1">
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">Quick check</div>
+    <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0 0 24px;text-wrap:balance">Is Yardsmith Stables <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">right for your yard?</span></h2>
+    <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0 0 32px">Tick what sounds like your yard.</p>
+    <div style="display:flex;align-items:center;gap:20px">
+      <div style="position:relative;width:96px;height:96px;flex:none">
+        <div style="position:absolute;inset:0;border-radius:50%;background:conic-gradient(#C99A3E {{ fitDeg }},#24221E 0)"></div>
+        <div style="position:absolute;inset:8px;border-radius:50%;background:#0A0A09;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:600;font-variant-numeric:tabular-nums">{{ fitCount }}/5</div>
+      </div>
+      <div style="font-size:17px;line-height:1.5;color:#D9D5CC;max-width:360px">{{ fitMsg }}</div>
+    </div>
+  </div>
+  <div data-reveal="2" style="display:flex;flex-direction:column;gap:10px">
+    <sc-for list="{{ fit }}" as="q" hint-placeholder-count="5">
+      <button onClick="{{ q.toggle }}" style="display:flex;align-items:center;gap:16px;text-align:left;width:100%;padding:20px 22px;border-radius:18px;cursor:pointer;font-family:inherit;font-size:16px;line-height:1.45;color:#F2EFE8;border:1px solid {{ q.line }};background:{{ q.bg }};transition:all .2s">
+        <span style="flex:none;width:26px;height:26px;border-radius:8px;border:1.5px solid #C99A3E;background:{{ q.box }};color:#0A0A09;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;transition:all .2s">{{ q.mark }}</span>{{ q.text }}
+      </button>
+    </sc-for>
+  </div>
+</section>
+
+<section style="border-top:1px solid #1E1D1A;background:radial-gradient(ellipse at 50% 100%,rgba(201,154,62,0.14) 0%,rgba(10,10,9,0) 60%)">
+  <div style="max-width:1000px;margin:0 auto;padding:clamp(72px,10vw,160px) clamp(16px,3vw,40px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px">
+    <div style="font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E">Begin</div>
+    <h2 style="font-weight:500;font-size:clamp(36px,4.6vw,70px);line-height:1;letter-spacing:-0.035em;margin:0;text-wrap:balance">Tell us about your yard, and we will <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">show you the rest.</span></h2>
+    <p style="font-size:18px;line-height:1.65;color:#BDB8AD;margin:0;max-width:640px;text-wrap:pretty">Whether you want a walkthrough of the product, a closer look at the business behind it, or simply to be kept informed as Yardsmith Stables develops, leave a few details and we will be in touch directly.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a href="request-access.html" style="background:#C99A3E;color:#0A0A09;padding:18px 30px;border-radius:999px;font-size:16px;font-weight:600;white-space:nowrap" style-hover="background:#DDB25E;color:#0A0A09">Request a Demo →</a>
+      <a href="investors.html" style="border:1px solid rgba(242,239,232,0.4);color:#F2EFE8;padding:17px 30px;border-radius:999px;font-size:16px;font-weight:500;white-space:nowrap" style-hover="border-color:#E2C07A;color:#E2C07A">For Investors</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 0, secs: 1800, fit: [false, false, false, false, false] };
+  componentDidMount() {
+    this.iv = setInterval(() => this.setState(s => ({ secs: s.secs > 0 ? s.secs - 1 : 1800 })), 1000);
+    const els = document.querySelectorAll('[data-reveal]');
+    els.forEach(el => { const d = (Number(el.getAttribute('data-reveal')) - 1) * 120; el.style.opacity = '0'; el.style.transform = 'translateY(28px)'; el.style.transition = `opacity .8s ease ${d}ms, transform .8s cubic-bezier(.2,.7,.2,1) ${d}ms`; });
+    this.io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.style.opacity = '1'; e.target.style.transform = 'none'; this.io.unobserve(e.target); } }), { threshold: 0.12 });
+    els.forEach(el => this.io.observe(el));
+  }
+  componentWillUnmount() { clearInterval(this.iv); this.io && this.io.disconnect(); }
+  renderVals() {
+    const E = React.createElement;
+    const pulse = E('span', { style: { width: 8, height: 8, borderRadius: '50%', background: '#C99A3E', display: 'inline-block', animation: 'ysPulse 1.8s infinite' } });
+    const ring = E('div', { style: { width: '100%', height: '100%', borderRadius: '50%', border: '1px dashed rgba(201,154,62,0.55)', animation: 'ysSpin 60s linear infinite' } });
+    const flowLine = E('div', { style: { position: 'absolute', inset: 0, background: 'linear-gradient(90deg,transparent,#C99A3E,transparent)', animation: 'ysFlow 3.2s ease-in-out infinite' } });
+    const m = Math.floor(this.state.secs / 60), sc = this.state.secs % 60;
+    const H = [['MA', 'Manager', '50%', '4%'], ['GR', 'Grooms', '91%', '28%'], ['TR', 'Trainer', '91%', '72%'], ['VF', 'Vet / farrier', '50%', '96%'], ['OW', 'Owners', '9%', '72%'], ['SP', 'Spaces', '9%', '28%']];
+    const CMP = [
+      ['Arena bookings', 'Two people show up for it at once', 'Booked once, visible to everyone'],
+      ['Turnout', 'Someone remembers who went out', 'On the yard plan the moment it happens'],
+      ['New staff', 'Asks around to learn the routine', 'Their tasks are on their phone, in order'],
+      ['Vet and farrier', 'The horse is not ready', 'A bring-in task before the visit'],
+      ['Shift cover', 'Gaps found on the day', 'Every approved day off is covered'],
+      ['Owner updates', 'Phone calls through the day', 'Owners check their horse in the app'],
+    ];
+    const FIT = ['More than one person looks after the horses', 'Paddocks, arenas or a walker are shared', 'Owners regularly call or message for updates', 'Plans live on a whiteboard, a group chat or paper', 'Staff and shifts change during the week'];
+    const fc = this.state.fit.filter(Boolean).length;
+    const fitMsg = fc === 0 ? 'Start ticking on the right.' : fc < 2 ? 'A good start. Most yards tick more than one.' : 'Yardsmith Stables was built for yards like yours. Request a demo and we will show you.';
+    const T = [
+      ['Yard plan', ['ui-yard-timer.png'], 'Where every horse is standing right now.', 'Move a horse to a paddock, the walker or the lunging circle and set a timer. The whole team sees it at once.'],
+      ['Spaces', ['ui-spaces.png'], 'Every paddock, arena and walker shows what is actually true right now.', 'How many spaces are in use, who is where, time left on the walker, and one step to bring everyone in from a paddock.'],
+      ['Tasks', ['ui-new-task.png'], 'One job, one worker.', 'Leave the horse blank for yard work that isn\'t tied to a particular animal. A deadline is flagged overdue once it passes.'],
+      ['Roster', ['ui-roster.png'], 'Every approved day off is covered.', 'The week of shifts for the whole team. Tap a cell to schedule or clear a shift; staff request a day off from the same screen.'],
+      ['Calendar', ['ui-calendar.png'], 'The month at a glance.', 'Farrier and saddle fitter visits, training, competitions and who is on, in one calendar for the yard.'],
+      ['Messages', ['ui-messages.png'], 'Direct messages and the yard channel.', 'Conversations with staff and owners live next to the work, not in a separate group chat.'],
+      ['Owner app', ['ui-m-my-horses.png', 'ui-m-horse.png', 'ui-m-live.png'], 'A window for owners.', 'Owners see their own horse\'s day, without picking up the phone: profile, care, health, appointments and answers to their requests.'],
+    ];
+    const k = this.state.tab;
+    const Y = [
+      ['Boarding & livery', 'Every horse accounted for', 'Turnout and daily care tracked clearly, with owners kept in the loop.', 'photo-grazing.jpg'],
+      ['Dressage', 'Training with intention', 'Arena time organised around the horses working toward their next test.', 'photo-dressage-chestnut.jpg'],
+      ['Show jumping', 'Courses without the guesswork', 'Jumping arenas and fitness work tracked alongside every horse\'s plan.', 'photo-jumping.avif'],
+      ['Riding schools', 'Lessons that run themselves', 'Instructors, horses and pupils brought together without a scheduling headache.', 'photo-dressage-black.webp'],
+      ['Breeding & stud', 'A different kind of calendar', 'The longer rhythm of breeding and young stock, tracked on its own terms.', 'photo-foal-mare.avif'],
+    ];
+    const yards = Y.map(y => ({ type: y[0], title: y[1], text: y[2], img: '' + y[3] }));
+    return {
+      pulse, ring, flowLine,
+      timer: m + ':' + String(sc).padStart(2, '0'),
+      hub: H.map(h => ({ ab: h[0], label: h[1], x: h[2], y: h[3] })),
+      compare: CMP.map(c => ({ what: c[0], before: c[1], after: c[2] })),
+      fit: FIT.map((t, i) => { const on = this.state.fit[i]; return { text: t, mark: on ? '✓' : '', box: on ? '#C99A3E' : 'transparent', line: on ? 'rgba(201,154,62,0.6)' : '#24221E', bg: on ? 'rgba(201,154,62,0.08)' : '#0F0F0E', toggle: () => this.setState(s => { const f = s.fit.slice(); f[i] = !f[i]; return { fit: f }; }) }; }),
+      fitCount: fc, fitDeg: (fc / 5 * 360) + 'deg', fitMsg,
+      yards,
+      tabs: T.map((t, i) => ({ label: t[0], pick: () => this.setState({ tab: i }), bg: i === k ? '#C99A3E' : 'transparent', fg: i === k ? '#0A0A09' : '#D9D5CC', line: i === k ? '#C99A3E' : '#2E2C27' })),
+      cur: { label: T[k][0], shots: T[k][1], title: T[k][2], text: T[k][3], h: T[k][0] === 'Owner app' ? 'clamp(340px,46vw,640px)' : 'auto' },
+    };
+  }
+}
+</script>
+</body>
+</html>

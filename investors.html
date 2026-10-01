@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A09;color:#F2EFE8;font-family:'Albert Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#E2C07A;text-decoration:none}
+a:hover{color:#F2EFE8}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div>
+<dc-import name="SiteHeader" active="For Investors" hint-size="100%,64px"></dc-import>
+
+<section style="position:relative;min-height:calc(100vh - 64px);min-height:620px;display:flex;align-items:flex-end;overflow:hidden">
+  <img src="photo-water-jump.jpg" alt="Horse and rider clearing a water jump at a show" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%">
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,1) 0%,rgba(10,10,9,0.7) 50%,rgba(10,10,9,0.45) 100%)"></div>
+  <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:140px clamp(16px,3vw,40px) 72px">
+    <h1 style="font-weight:500;font-size:clamp(40px,5.6vw,88px);line-height:0.98;letter-spacing:-0.035em;margin:0 0 40px;max-width:1100px;text-wrap:balance">Founded in the Netherlands. <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">Built for equestrian yards everywhere.</span></h1>
+    <a href="request-access.html#investors" style="display:inline-flex;align-items:center;gap:10px;background:#C99A3E;color:#0A0A09;padding:18px 30px;border-radius:999px;font-size:16px;font-weight:600" style-hover="background:#DDB25E;color:#0A0A09">Request the Investor Overview →</a>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:clamp(40px,6vw,96px);align-items:start">
+  <div>
+    <p style="font-size:clamp(20px,1.8vw,26px);line-height:1.5;margin:0 0 24px;text-wrap:pretty">Yardsmith Stables is genuine infrastructure for the equestrian world, not a quick tool bolted onto an existing habit. The product design is complete, and the business case is grounded in verified market research rather than guesswork. The starting point is the Netherlands and Western Europe, the horizon is worldwide.</p>
+    <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0;text-wrap:pretty">If you are exploring this space, as an investor, a grant partner, or simply someone who knows the industry well, we would welcome the conversation.</p>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:12px">
+    <div style="border:1px solid rgba(201,154,62,0.3);border-radius:20px;background:#0F0F0E;padding:28px 30px;display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E">Design</div><div style="font-size:24px;font-weight:500;line-height:1.25;letter-spacing:-0.01em">Complete across every role in the yard</div></div>
+    <div style="border:1px solid rgba(201,154,62,0.3);border-radius:20px;background:#0F0F0E;padding:28px 30px;display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E">Market approach</div><div style="font-size:24px;font-weight:500;line-height:1.25;letter-spacing:-0.01em">Grounded in verified data, not estimates</div></div>
+    <div style="border:1px solid rgba(201,154,62,0.3);border-radius:20px;background:#0F0F0E;padding:28px 30px;display:flex;flex-direction:column;gap:10px"><div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E">Ambition</div><div style="font-size:24px;font-weight:500;line-height:1.25;letter-spacing:-0.01em">Starting in the Netherlands, built for yards worldwide</div></div>
+  </div>
+</section>
+
+<section style="border-top:1px solid #1E1D1A;background:radial-gradient(ellipse at 50% 0%,rgba(201,154,62,0.12) 0%,rgba(10,10,9,0) 55%)">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px)">
+    <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">The product in brief</div>
+    <h2 style="font-weight:500;font-size:clamp(32px,3.6vw,54px);line-height:1.04;letter-spacing:-0.03em;margin:0 0 48px;max-width:960px;text-wrap:balance">Operational software for equestrian yards: <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">real-time space tracking, team tasks and a client portal.</span></h2>
+    <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start;margin-bottom:16px">
+      <div style="flex:1.888 1 378px;min-width:0;border:1px solid rgba(201,154,62,0.28);border-radius:18px;background:#0D0D0C;padding:10px"><img src="ui-roster.png" alt="Weekly roster" style="width:100%;display:block;border-radius:10px"></div>
+      <div style="flex:0.591 1 118px;min-width:0;border:1px solid rgba(201,154,62,0.35);border-radius:24px;background:#0A0A09;padding:8px"><img src="ui-m-horse.png" alt="Owner app: horse profile" style="width:100%;display:block;border-radius:17px"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin-top:40px">
+      <div style="border:1px solid #24221E;border-radius:20px;background:#0F0F0E;padding:28px"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:10px">Who it serves</div><p style="font-size:16px;line-height:1.6;color:#D9D5CC;margin:0">Everyone working in the yard, and the owners of the horses kept there.</p></div>
+      <div style="border:1px solid #24221E;border-radius:20px;background:#0F0F0E;padding:28px"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:10px">Which yards</div><p style="font-size:16px;line-height:1.6;color:#D9D5CC;margin:0">Boarding and livery, dressage, show jumping, riding schools, breeding and stud.</p></div>
+      <div style="border:1px solid #24221E;border-radius:20px;background:#0F0F0E;padding:28px"><div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:10px">What it replaces</div><p style="font-size:16px;line-height:1.6;color:#D9D5CC;margin:0">The tack-room whiteboard, the group chat and the paper arena diary.</p></div>
+    </div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:32px">
+      <a href="product.html" style="font-size:15px;font-weight:500">See the product →</a>
+      <a href="team.html" style="font-size:15px;font-weight:500">See how teams use it →</a>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:0 clamp(16px,3vw,40px) clamp(72px,10vw,150px)">
+  <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">Who we would like to hear from</div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
+    <div style="position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;border:1px solid #24221E"><img src="photo-jumping.avif" alt="Show jumping" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,0.97) 0%,rgba(10,10,9,0.2) 70%)"></div><div style="position:absolute;left:24px;right:24px;bottom:24px"><div style="font-size:26px;font-weight:500;margin-bottom:6px">Investors</div><div style="font-size:15px;color:#D9D5CC">Exploring software for the equestrian sector.</div></div></div>
+    <div style="position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;border:1px solid #24221E"><img src="photo-herd.jpg" alt="Horses running in a field" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,0.97) 0%,rgba(10,10,9,0.2) 70%)"></div><div style="position:absolute;left:24px;right:24px;bottom:24px"><div style="font-size:26px;font-weight:500;margin-bottom:6px">Grant partners</div><div style="font-size:15px;color:#D9D5CC">Supporting early-stage infrastructure in the Netherlands and Europe.</div></div></div>
+    <div style="position:relative;aspect-ratio:4/3;border-radius:22px;overflow:hidden;border:1px solid #24221E"><img src="photo-tack-room.jpg" alt="Tack room" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover"><div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,0.97) 0%,rgba(10,10,9,0.2) 70%)"></div><div style="position:absolute;left:24px;right:24px;bottom:24px"><div style="font-size:26px;font-weight:500;margin-bottom:6px">Industry experts</div><div style="font-size:15px;color:#D9D5CC">Anyone who knows how yards really run.</div></div></div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A0A09;color:#F2EFE8;font-family:'Albert Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#E2C07A;text-decoration:none}
+a:hover{color:#F2EFE8}
+*{box-sizing:border-box}
+</style>
+</helmet>
+<div>
+<dc-import name="SiteHeader" active="For Your Team" hint-size="100%,64px"></dc-import>
+
+<section style="position:relative;min-height:620px;display:flex;align-items:flex-end;overflow:hidden">
+  <img src="photo-indoor-arena.jpg" alt="Riders working in a bright indoor arena" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,10,9,1) 0%,rgba(10,10,9,0.72) 50%,rgba(10,10,9,0.5) 100%)"></div>
+  <div style="position:relative;max-width:1360px;width:100%;margin:0 auto;padding:140px clamp(16px,3vw,40px) 64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:40px;align-items:end">
+    <div>
+      <h1 style="font-weight:500;font-size:clamp(38px,5vw,78px);line-height:0.98;letter-spacing:-0.035em;margin:0;text-wrap:balance">Every yard builds its own team. Yardsmith Stables <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">adapts to whoever is on it.</span></h1>
+    </div>
+    <p style="font-size:17px;line-height:1.7;color:#D9D5CC;margin:0;text-wrap:pretty">No two yards are staffed the same way. A small livery yard might run on two people. A sport stable might have a manager, several grooms, a trainer, and a vet or farrier who visits on schedule. Roles and permissions are set up per yard, not fixed by us.</p>
+  </div>
+</section>
+
+<section style="max-width:1360px;margin:0 auto;padding:64px clamp(16px,3vw,40px) clamp(72px,10vw,150px)">
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px">
+    <sc-for list="{{ roles }}" as="r" hint-placeholder-count="7">
+      <button onClick="{{ r.pick }}" style="white-space:nowrap;font-family:inherit;font-size:15px;font-weight:500;padding:12px 20px;border-radius:999px;cursor:pointer;border:1px solid {{ r.line }};background:{{ r.bg }};color:{{ r.fg }}">{{ r.name }}</button>
+    </sc-for>
+  </div>
+  <div style="border-radius:28px;border:1px solid rgba(201,154,62,0.3);background:radial-gradient(ellipse at 0% 0%,rgba(201,154,62,0.14) 0%,#0F0F0E 55%);padding:clamp(28px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:48px">
+    <div>
+      <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E;margin-bottom:14px">{{ role.num }} / 07</div>
+      <h2 style="font-weight:500;font-size:clamp(34px,3.6vw,56px);letter-spacing:-0.03em;line-height:1.02;margin:0 0 20px">{{ role.name }}</h2>
+      <p style="font-size:19px;line-height:1.55;color:#D9D5CC;margin:0">{{ role.summary }}</p>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;padding-bottom:12px">What they see and do</div>
+      <sc-for list="{{ role.points }}" as="p" hint-placeholder-count="4">
+        <div style="display:flex;gap:16px;padding:16px 0;border-top:1px solid #24221E;font-size:17px;line-height:1.5"><div style="width:7px;height:7px;background:#C99A3E;margin-top:9px;flex:none"></div><div>{{ p }}</div></div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="day" style="border-top:1px solid #1E1D1A;background:radial-gradient(ellipse at 100% 0%,rgba(201,154,62,0.1) 0%,rgba(10,10,9,0) 50%)">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;margin-bottom:56px;align-items:end">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">A day in the yard</div>
+        <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">The same Tuesday, <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">before and after.</span></h2>
+      </div>
+      <p style="font-size:17px;line-height:1.65;color:#BDB8AD;margin:0">Nothing dramatic. The small frictions simply stop.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <sc-for list="{{ day }}" as="d" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px clamp(16px,3vw,40px);padding:24px clamp(16px,3vw,32px);border:1px solid #24221E;border-radius:18px;background:#0F0F0E;font-size:16px;line-height:1.55;align-items:start">
+          <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:26px;color:#C99A3E;line-height:1">{{ d.t }}</div>
+          <div style="color:#8E897E"><div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px">Without</div>{{ d.before }}</div>
+          <div><div style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;color:#E2C07A">With Yardsmith Stables</div>{{ d.after }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="every-yard" style="border-top:1px solid #1E1D1A">
+  <div style="max-width:1360px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px)">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:48px;margin-bottom:56px;align-items:end">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E;margin-bottom:28px"><img src="mark-gold.png" alt="" style="width:15px;height:15px;display:block">Built for the way you work</div>
+        <h2 style="font-weight:500;font-size:clamp(34px,3.8vw,58px);line-height:1.02;letter-spacing:-0.03em;margin:0;text-wrap:balance">Every yard is a little different. Yardsmith Stables is built to <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">bend around that.</span></h2>
+      </div>
+      <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0">One core, five directions. Yardsmith Stables starts from the same foundation and grows into whichever shape your yard actually needs.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <sc-for list="{{ yards }}" as="y" hint-placeholder-count="5">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:clamp(20px,4vw,56px);align-items:center;border:1px solid #24221E;border-radius:22px;background:#0F0F0E;padding:14px">
+          <img src="{{ y.img }}" alt="{{ y.type }}" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-radius:14px">
+          <div style="display:flex;flex-direction:column;gap:12px;padding:8px 12px">
+            <div style="display:flex;gap:14px;align-items:baseline"><span style="font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;color:#C99A3E">{{ y.n }}</span><span style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#E2C07A">{{ y.type }}</span></div>
+            <h3 style="font-weight:500;font-size:clamp(24px,2.4vw,34px);letter-spacing:-0.02em;margin:0">{{ y.title }}</h3>
+            <p style="font-size:16px;line-height:1.6;color:#BDB8AD;margin:0">{{ y.text }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="border-top:1px solid #1E1D1A;background:radial-gradient(ellipse at 50% 100%,rgba(201,154,62,0.14) 0%,rgba(10,10,9,0) 60%)">
+  <div style="max-width:1000px;margin:0 auto;padding:clamp(72px,10vw,150px) clamp(16px,3vw,40px);text-align:center;display:flex;flex-direction:column;align-items:center;gap:28px">
+    <h2 style="font-weight:500;font-size:clamp(34px,4.2vw,64px);line-height:1;letter-spacing:-0.035em;margin:0;text-wrap:balance">Tell us about your yard, and we will <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">show you the rest.</span></h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a href="request-access.html" style="background:#C99A3E;color:#0A0A09;padding:18px 30px;border-radius:999px;font-size:16px;font-weight:600" style-hover="background:#DDB25E;color:#0A0A09">Request a Demo →</a>
+      <a href="investors.html" style="border:1px solid rgba(242,239,232,0.4);color:#F2EFE8;padding:17px 30px;border-radius:999px;font-size:16px;font-weight:500" style-hover="border-color:#E2C07A;color:#E2C07A">For Investors</a>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { role: 0 };
+  renderVals() {
+    const R = [
+      ['Manager', 'Sets up the yard, the team and the rules. Sees everything at once.', ['The whole yard: every space, every horse, every task', 'Creates roles and decides who can see and change what', 'Builds the roster and approves days off', 'Knows what owners have been told, without being asked']],
+      ['Groom / staff', 'Opens the app and sees their own day, in order.', ['A personal task list for the shift, in the right sequence', 'Which paddock or walker is free before leading a horse out', 'The care plan for each horse: bedding, feed and scoops', 'Requests a day off from the roster']],
+      ['Trainer', 'Plans arena time around the horses and riders in training.', ['Books training without clashing with lessons or other trainers', 'Sees which horses are available and when', 'Leaves notes on the horse, not in a chat', 'Shares relevant updates with the owner']],
+      ['Vet / farrier', 'Visits on schedule and finds the right horse ready.', ['Visits on the yard calendar', 'Grooms get the task to bring horses in on time', 'Notes stay with the horse', 'Access limited to what the visit needs']],
+      ['Working student', 'Learns the yard quickly without asking around.', ['Tasks with enough detail to do them right the first time', 'The same live picture as the rest of the team', 'Permissions set by the manager, adjustable as they learn']],
+      ['Owner', 'Sees their own horse\'s day from their phone.', ['My horses: profile, care, health, hours and progress', 'Appointments and requests in their own calendar', 'Answers from the yard on every request', 'Fewer phone calls, for them and for the yard']],
+      ['Any role you need', 'Yards invent roles all the time. The software follows.', ['Create a custom role with its own name', 'Choose exactly which spaces, horses and tasks it can see', 'Change permissions as people and responsibilities change']],
+    ];
+    const ri = this.state.role;
+    const D = [
+      ['07:00', 'The early groom reads last night\'s messages to work out who has been fed.', 'Her morning tasks are already on her phone, in order, with each horse\'s care plan.'],
+      ['08:30', 'Two horses go out to a paddock someone else had planned to use.', 'The yard plan shows which paddocks are free. The move is visible to everyone at once.'],
+      ['10:00', 'The farrier arrives. Nobody brought Storm in.', 'The visit was on the calendar, so bringing Storm in was a task at 09:45.'],
+      ['11:00', 'A trainer and a rider both turn up for the outdoor arena.', 'The session was booked once. The second person saw it was taken and picked another time.'],
+      ['15:00', 'An owner calls to ask whether her horse went out today.', 'She has already seen it in the owner app.'],
+    ];
+    const Y = [
+      ['Boarding & livery', 'Every horse accounted for', 'Turnout and daily care tracked clearly, with owners kept in the loop.', 'photo-grazing.jpg'],
+      ['Dressage', 'Training with intention', 'Arena time organised around the horses working toward their next test.', 'photo-dressage-chestnut.jpg'],
+      ['Show jumping', 'Courses without the guesswork', 'Jumping arenas and fitness work tracked alongside every horse\'s plan.', 'photo-jumping.avif'],
+      ['Riding schools', 'Lessons that run themselves', 'Instructors, horses and pupils brought together without a scheduling headache.', 'photo-dressage-black.webp'],
+      ['Breeding & stud', 'A different kind of calendar', 'The longer rhythm of breeding and young stock, tracked on its own terms.', 'photo-foals.jpg'],
+    ];
+    return {
+      roles: R.map((r, i) => ({ name: r[0], pick: () => this.setState({ role: i }), bg: i === ri ? '#C99A3E' : 'transparent', fg: i === ri ? '#0A0A09' : '#D9D5CC', line: i === ri ? '#C99A3E' : '#2E2C27' })),
+      role: { num: '0' + (ri + 1), name: R[ri][0], summary: R[ri][1], points: R[ri][2] },
+      day: D.map(d => ({ t: d[0], before: d[1], after: d[2] })),
+      yards: Y.map((y, i) => ({ n: '0' + (i + 1), type: y[0], title: y[1], text: y[2], img: '' + y[3] })),
+    };
+  }
+}
+</script>
+</body>
+</html>

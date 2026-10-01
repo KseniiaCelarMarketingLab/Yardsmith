@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0A0A09;color:#F2EFE8;font-family:'Albert Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#E2C07A;text-decoration:none}
+a:hover{color:#F2EFE8}
+*{box-sizing:border-box}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#C99A3E !important}
+input::placeholder,textarea::placeholder{color:#6E6A61}
+select option{background:#141412;color:#F2EFE8}
+</style>
+</helmet>
+<div>
+<dc-import name="SiteHeader" active="" hint-size="100%,64px"></dc-import>
+
+<section style="max-width:1360px;margin:0 auto;padding:clamp(64px,8vw,120px) clamp(16px,3vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(40px,6vw,80px);align-items:start">
+  <div>
+    <h1 style="font-weight:500;font-size:clamp(38px,4.6vw,70px);line-height:0.98;letter-spacing:-0.035em;margin:0 0 28px;text-wrap:balance">Tell us about your yard, and we will <span style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:#E2C07A">show you the rest.</span></h1>
+    <p style="font-size:17px;line-height:1.7;color:#BDB8AD;margin:0 0 40px;text-wrap:pretty">Whether you want a walkthrough of the product, a closer look at the business behind it, or simply to be kept informed as Yardsmith Stables develops, leave a few details and we will be in touch directly.</p>
+    <img src="photo-foal-mare.avif" alt="A foal trotting beside its mother" style="width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-radius:22px;margin-bottom:40px">
+    <div style="border-top:1px solid rgba(201,154,62,0.35);padding-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E">Netherlands</div>
+        <a href="tel:+31629475620" style="font-size:20px;color:#F2EFE8">+31 6 29 47 56 20</a>
+        <a href="https://wa.me/31629475620" target="_blank" style="font-size:14px">WhatsApp →</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#C99A3E">Slovakia</div>
+        <a href="tel:+421902459990" style="font-size:20px;color:#F2EFE8">+421 902 459 990</a>
+        <a href="https://wa.me/421902459990" target="_blank" style="font-size:14px">WhatsApp →</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="border-radius:28px;padding:1px;background:linear-gradient(135deg,rgba(226,192,122,0.8),rgba(201,154,62,0.1) 45%,rgba(226,192,122,0.5))">
+    <div style="border-radius:27px;background:#0F0F0E;padding:clamp(24px,4vw,48px)">
+      <div style="display:flex;gap:4px;padding:4px;border:1px solid #24221E;border-radius:999px;margin-bottom:32px;overflow-x:auto;overflow-y:hidden;scrollbar-width:none">
+        <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="3">
+          <button type="button" onClick="{{ t.pick }}" style="flex:1;white-space:nowrap;font-family:inherit;font-size:14px;font-weight:500;padding:11px 16px;border-radius:999px;cursor:pointer;border:none;background:{{ t.bg }};color:{{ t.fg }}">{{ t.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" style="display:flex;flex-direction:column;gap:22px">
+          <div>
+            <h2 style="font-weight:500;font-size:32px;letter-spacing:-0.02em;margin:0 0 6px">{{ form.title }}</h2>
+            <p style="font-size:15px;line-height:1.55;color:#A39E92;margin:0">{{ form.intro }}</p>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+            <sc-for list="{{ form.fields }}" as="fl" hint-placeholder-count="6">
+              <label style="display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:500;color:#D9D5CC;grid-column:{{ fl.span }}">{{ fl.label }}
+                <sc-if value="{{ fl.isInput }}" hint-placeholder-val="{{ true }}"><input name="{{ fl.name }}" type="{{ fl.type }}" required="{{ fl.req }}" placeholder="{{ fl.ph }}" style="font:inherit;font-size:16px;font-weight:400;padding:14px 16px;border:1px solid #2E2C27;border-radius:14px;background:#141412;color:#F2EFE8;width:100%"></sc-if>
+                <sc-if value="{{ fl.isSelect }}" hint-placeholder-val="{{ false }}"><select name="{{ fl.name }}" style="font:inherit;font-size:16px;font-weight:400;padding:14px 16px;border:1px solid #2E2C27;border-radius:14px;background:#141412;color:#F2EFE8;width:100%"><sc-for list="{{ fl.options }}" as="o" hint-placeholder-count="3"><option value="{{ o }}">{{ o }}</option></sc-for></select></sc-if>
+                <sc-if value="{{ fl.isText }}" hint-placeholder-val="{{ false }}"><textarea name="{{ fl.name }}" required="{{ fl.req }}" rows="4" placeholder="{{ fl.ph }}" style="font:inherit;font-size:16px;font-weight:400;padding:14px 16px;border:1px solid #2E2C27;border-radius:14px;background:#141412;color:#F2EFE8;width:100%;resize:vertical"></textarea></sc-if>
+              </label>
+            </sc-for>
+          </div>
+          <button type="submit" disabled="{{ sending }}" style="font:inherit;font-weight:600;font-size:16px;background:#C99A3E;color:#0A0A09;border:none;padding:18px;border-radius:999px;cursor:pointer" style-hover="background:#DDB25E">{{ form.button }}</button>
+          <sc-if value="{{ failed }}" hint-placeholder-val="{{ false }}"><p style="font-size:14px;line-height:1.5;color:#D98B76;margin:0;text-align:center">Something went wrong sending this. Please try again, or message us on WhatsApp.</p></sc-if>
+          <p style="font-size:13px;color:#8E897E;margin:0;text-align:center">We reply to every request personally, usually within a couple of days.</p>
+        </form>
+      </sc-if>
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:48px 0;display:flex;flex-direction:column;gap:16px;align-items:flex-start">
+          <div style="width:12px;height:12px;background:#C99A3E"></div>
+          <h2 style="font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:44px;color:#E2C07A;margin:0">Thank you.</h2>
+          <p style="font-size:17px;line-height:1.6;color:#BDB8AD;margin:0">Your request has reached us, and we will be in touch shortly.</p>
+          <button type="button" onClick="{{ reset }}" style="font:inherit;font-size:14px;background:none;border:1px solid #2E2C27;color:#D9D5CC;padding:10px 18px;border-radius:999px;cursor:pointer">Send another</button>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<dc-import name="SiteFooter" hint-size="100%,360px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { form: 'demo', status: 'idle' };
+  componentDidMount() {
+    this.onHash = () => { const h = (location.hash || '').slice(1); if (['demo', 'investors', 'question'].includes(h)) this.setState({ form: h, status: 'idle' }); };
+    this.onHash();
+    window.addEventListener('hashchange', this.onHash);
+  }
+  componentWillUnmount() { window.removeEventListener('hashchange', this.onHash); }
+  renderVals() {
+    const f = (name, label, o = {}) => ({ name, label, type: o.type || 'text', req: !!o.req, ph: o.ph || '', span: o.wide ? '1 / -1' : 'auto', isInput: !o.kind, isSelect: o.kind === 'select', isText: o.kind === 'text', options: o.options || [] });
+    const FORMS = {
+      demo: { tab: 'Request a demo', title: 'Request a free demo.', intro: 'A walkthrough of Yardsmith Stables, shaped around your yard.', button: 'Request a demo', fields: [
+        f('First name', 'First name', { req: true }), f('Last name', 'Last name', { req: true }),
+        f('Position', 'Position', { ph: 'e.g. Yard manager' }), f('Yard name', 'Yard name'),
+        f('Type of yard', 'Type of yard', { kind: 'select', options: ['Boarding & livery', 'Dressage', 'Show jumping', 'Riding school', 'Breeding & stud', 'Other'] }), f('Number of horses', 'Number of horses', { type: 'number' }),
+        f('Phone', 'Phone number', { type: 'tel', req: true }), f('Country', 'Where are you writing from', { ph: 'Country or region' }),
+        f('Email', 'Email (optional)', { type: 'email', wide: true }),
+        f('Message', 'Anything we should know (optional)', { kind: 'text', wide: true }),
+      ] },
+      investors: { tab: 'For investors', title: 'Request the investor overview.', intro: 'For investors, grant partners and people who know the industry well.', button: 'Request the overview', fields: [
+        f('First name', 'First name', { req: true }), f('Last name', 'Last name', { req: true }),
+        f('Organisation', 'Organisation'), f('I am', 'I am', { kind: 'select', options: ['An investor', 'A grant partner', 'An industry expert', 'Other'] }),
+        f('Email', 'Email', { type: 'email', req: true }), f('Phone', 'Phone number', { type: 'tel' }),
+        f('Country', 'Where are you writing from', { ph: 'Country or region', wide: true }),
+        f('Message', 'Message (optional)', { kind: 'text', wide: true }),
+      ] },
+      question: { tab: 'Ask a question', title: 'Ask us anything.', intro: 'About the product, the team, or how it would work at your yard.', button: 'Send question', fields: [
+        f('Name', 'Name', { req: true }), f('Contact', 'Email or phone', { req: true }),
+        f('Question', 'Your question', { kind: 'text', req: true, wide: true }),
+      ] },
+    };
+    const k = this.state.form, st = this.state.status;
+    const cur = FORMS[k];
+    return {
+      tabs: Object.keys(FORMS).map(key => ({ label: FORMS[key].tab, pick: () => { this.setState({ form: key, status: 'idle' }); history.replaceState(null, '', '#' + key); }, bg: key === k ? '#C99A3E' : 'transparent', fg: key === k ? '#0A0A09' : '#D9D5CC' })),
+      form: { ...cur, button: st === 'sending' ? 'Sending…' : cur.button },
+      showForm: st !== 'sent', sent: st === 'sent', failed: st === 'error', sending: st === 'sending',
+      reset: () => this.setState({ status: 'idle' }),
+      submit: async (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target).entries());
+        this.setState({ status: 'sending' });
+        try {
+          const r = await fetch('https://formsubmit.co/ajax/kseniia.kklsh@gmail.com', {
+            method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+            body: JSON.stringify({ _subject: 'Yardsmith Stables — ' + cur.tab, _template: 'table', _captcha: 'false', Form: cur.tab, ...data }),
+          });
+          this.setState({ status: r.ok ? 'sent' : 'error' });
+        } catch (err) { this.setState({ status: 'error' }); }
+      },
+    };
+  }
+}
+</script>
+</body>
+</html>
